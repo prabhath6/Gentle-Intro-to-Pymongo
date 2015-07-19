@@ -2,12 +2,13 @@
 import pymongo
 import pymongo.errors
 
+
 class read_db(object):
 
     def connection(self):
 
         """
-        Creating a connecton Object
+        Creating a connection Object
         """
 
         try:
@@ -38,7 +39,7 @@ class read_db(object):
         # Create a data base handler
         dbh = c["person_db"]
 
-        # my name
+        # Age
         data = dbh.users.find({"degree":"masters"}, {"age" : 1})
 
         for i in  data:
@@ -53,7 +54,7 @@ class read_db(object):
         # Create a data base handler
         dbh = c["person_db"]
 
-        # my name
+        # Getting Count
         data = dbh.users.find({"age" : 24}).count()
 
         print "Total number of people with age 24 are {}" .format(data)
@@ -67,7 +68,7 @@ class read_db(object):
         # Create a data base handler
         dbh = c["person_db"]
 
-        # my name
+        # Count of people with age greater than 23
         data = dbh.users.find({"age":{"$gt":23}}).count()
 
         print "Total number of people with age greater than 23 are {}." .format(data)
@@ -82,7 +83,7 @@ class read_db(object):
         # Create a data base handler
         dbh = c["person_db"]
 
-        # my name
+        # Sorting based on id
         data = dbh.users.find({"degree":"masters"}, sort=[("id", pymongo.DESCENDING)])
 
         for i in  data:
@@ -96,7 +97,7 @@ class read_db(object):
         # Create a data base handler
         dbh = c["person_db"]
 
-        # my name
+        # Updating the database
         dbh.users.update({"fname":"kiran"},
                 {"$set":{"degree":"PHD"}}, safe=True)
         
@@ -130,15 +131,21 @@ if __name__ == "__main__":
 
    # Normal query to get age.
    p.query(r)
+
    # To get all the people's age who's degree is masters.
    p.query1(r)
+
    # To get number of people with age equals 24
    p.query2(r)
+
    # To get count of people with age greater than 23
    p.query3(r)
+
    # Sorting
    p.query4(r)
+
    # Updating
    p.query5(r)
+
    # Delting a document
    p.query6(r)
