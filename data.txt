@@ -1,10 +1,10 @@
 {"id": 1, "fname":"Prabhath", "lname":"kiran", "age":23, "degree":"masters"}
 {"id":2, "fname":"Rahul", "lname":"kilambi", "age":23, "degree":"masters"}
 {"id":3, "fname":"kiran", "lname":"kumar", "age":28, "degree": "masters"}
-{"id":4, "fname":"srinivas", "lname":"mamidi", "age":24, "degree": "masters"}
-{"id":5, "fname":"srinivas", "lname":"maram", "age":26, "degree": "masters"}
+{"id":4, "fname":"srinivas", "lname":"L", "age":24, "degree": "masters"}
+{"id":5, "fname":"srinivas", "lname":"R", "age":26, "degree": "masters"}
 {"id":6, "fname":"santosh", "lname":"kumar", "age":24, "degree": "masters"}
-{"id":7, "fname":"venkat", "lname":"neehar", "age":24, "degree": "masters"}
+{"id":7, "fname":"venkat", "lname":"N", "age":24, "degree": "masters"}
 {"id":8, "fname":"raja", "lname":"G", "age":24, "degree": "masters"}
 {"id":9, "fname":"rani", "lname":"G", "age":23, "degree": "masters"}
 {"id":10, "fname":"venus", "lname":"B", "age":23, "degree": "masters"}
