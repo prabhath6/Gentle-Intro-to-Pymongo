@@ -24,9 +24,26 @@ class query(object):
 
         for i in data:
             print i
+    
+    def query2(self, c):
+
+        # Create a database handler
+        dbh = c["person_db"]
+
+        """
+        Returns any person who loves oranges or sweets
+        """
+
+        data = dbh.versatile_db.find({"loves":{"$in":["sweets", "oranges"]}})
+    
+        for i in data:
+           print i 
 
 if __name__ == "__main__":
 
     p = query()
     c = p.connection()
+    # q1
     p.query1(c)
+    # q2
+    p.query2(c)
