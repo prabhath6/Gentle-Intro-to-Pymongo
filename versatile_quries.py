@@ -14,3 +14,19 @@ class query(object):
             raise "Cannot connect to database"
         
         return c
+
+    def query1(self, c):
+
+        # Create database handler
+        dbh = c["person_db"]
+
+        data = dbh.versatile_db.find({"gender": {"$ne":"f"},"weight":{"$gte":125}})
+
+        for i in data:
+            print i
+
+if __name__ == "__main__":
+
+    p = query()
+    c = p.connection()
+    p.query1(c)

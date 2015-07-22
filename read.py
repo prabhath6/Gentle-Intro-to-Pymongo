@@ -30,7 +30,7 @@ class read_db(object):
         # my name
         data = dbh.users.find({"fname":"Prabhath"})
 
-        for i in  data:
+        for i in data:
             print "Age : {}" .format(i["age"])
     
     def query1(self, c):
