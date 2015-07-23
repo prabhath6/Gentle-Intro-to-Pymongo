@@ -14,7 +14,7 @@ class insert_into_db(object):
         try:
             c = pymongo.Connection(host="127.0.0.1", port = 27017)
         except pymongo.errors.ConnectionFailure, e:
-            raise "COuld not establish connection with db"
+            raise "Could not establish connection with db"
 
         return c
 

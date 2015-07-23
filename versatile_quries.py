@@ -39,11 +39,30 @@ class query(object):
         for i in data:
            print i 
 
+    def query3(self, c):
+
+        # Create a database handler
+        dbh = c["person_db"]
+
+        """
+        Using 'or' 
+        """
+        
+        data = dbh.versatile_db.find({"gender": "f", 
+            "$or":[{"loves":"sweets"},{"weight":138}]})
+        
+        for i in data:
+            print i
+
 if __name__ == "__main__":
 
     p = query()
     c = p.connection()
     # q1
     p.query1(c)
+    print 
     # q2
     p.query2(c)
+    print 
+    # q3
+    p.query3(c)
