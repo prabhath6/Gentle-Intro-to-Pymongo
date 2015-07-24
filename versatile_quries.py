@@ -53,6 +53,27 @@ class query(object):
         
         for i in data:
             print i
+    
+    def query4(self, c):
+
+        # Create a database handler
+        dbh = c["person_db"]
+        
+        """
+        Using 'push' to append
+        """
+
+        data = dbh.versatile_db.update({"name":"Prabhath"},
+                {"$push": {"loves": "sugar"}})
+
+        data1 = dbh.versatile_db.find({"name":"Prabhath"})
+
+        for i in data1:
+            print i
+        
+        # Removing sugar
+        dbh.versatile_db.update({"name":"Prabhath"}, 
+                {"$pull":{"loves":"sugar"}})
 
 if __name__ == "__main__":
 
@@ -66,3 +87,6 @@ if __name__ == "__main__":
     print 
     # q3
     p.query3(c)
+    # q4
+    print
+    p.query4(c)
