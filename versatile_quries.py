@@ -2,7 +2,7 @@
 
 import pymongo
 import pymongo.errors
-import json
+
 
 class query(object):
     
