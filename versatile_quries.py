@@ -75,18 +75,60 @@ class query(object):
         dbh.versatile_db.update({"name":"Prabhath"}, 
                 {"$pull":{"loves":"sugar"}})
 
+    def query5(self, c):
+
+        # Create a database handler
+        dbh = c["person_db"]
+
+        """
+        Updating all the documents in the data base.
+        """
+
+        dbh.versatile_db.update({},{"$set": {"vaccinated":True}}, multi= True)
+
+        data = dbh.versatile_db.find({"vaccinated":True})
+
+        for i in data:
+            print i["name"]
+
+    def query6(self, c):
+
+        # Create a database handler
+        dbh = c["person_db"]
+
+        """
+        Removing vaccinated field from all the documents in the data base.
+        """
+        dbh.versatile_db.update({}, {"$unset":{"vaccinated":""}}, multi= True)
+        
+        """
+        Modifing a single document
+
+        dbh.versatile_db.update({"name":"Rahul"}
+            ,{"$unset":{"vaccinated":""}})
+        """
+
+        data = dbh.versatile_db.find({})
+
+        for i in data:
+            print i
+
 if __name__ == "__main__":
 
     p = query()
     c = p.connection()
     # q1
-    p.query1(c)
+    #p.query1(c)
     print 
     # q2
-    p.query2(c)
+    #p.query2(c)
     print 
     # q3
-    p.query3(c)
+    #p.query3(c)
     # q4
     print
-    p.query4(c)
+    #p.query4(c)
+    print 
+    #p.query5(c)
+    print 
+    #p.query6(c)
