@@ -112,23 +112,84 @@ class query(object):
 
         for i in data:
             print i
+    
+    def query7(self, c):
+
+        # Create data base handler
+        dbh = c["person_db"]
+
+        """
+        Custom selection of fileds in a document.
+        By default every time _id is returned when
+        find is used we can exclude it using.
+        """
+        data = dbh.versatile_db.find({},{"name": 1, "weight": 1, "_id": 0})
+
+        for i in data:
+            print i
+    
+    def query8(self, c):
+
+        # Create a databse handler
+        dbh = c["person_db"]
+
+        """
+        Odering 
+        Sorting can be done in two ways
+        1. dbh.person_db.find({}, sort=[(field_name, order)])
+        2. dbh.person_db.find({}).sort([(field_name: -1)])
+        -1 = descending order
+         1 = ascending order
+        """
+
+        data = dbh.versatile_db.find({}).sort([("weight", -1)])
+
+        for i in data:
+            print i['weight']
+
+    def query9(self, c):
+
+        # Create a database handler
+        dbh = c["person_db"]
+
+        """
+        Using limit and skip.
+        limit is used to limit the number of values in the result set
+        skip is used to skip the elemet in the result set.(2nd highest)
+        """
+        data = dbh.versatile_db.find({}).sort([("weight", -1)]).limit(3).skip(1)
+
+        for i in data:
+            print i['weight']
+           
+
+    def query10(self, c):
+
+        # Create a database handler
+        dbh = c["person_db"]
 
 if __name__ == "__main__":
 
     p = query()
     c = p.connection()
     # q1
-    #p.query1(c)
+    p.query1(c)
     print 
     # q2
-    #p.query2(c)
+    p.query2(c)
     print 
     # q3
-    #p.query3(c)
+    p.query3(c)
     # q4
     print
-    #p.query4(c)
+    p.query4(c)
     print 
-    #p.query5(c)
+    p.query5(c)
     print 
-    #p.query6(c)
+    p.query6(c)
+    #print 
+    #p.query7(c)
+    #print 
+    #p.query8(c)
+    print
+    p.query9(c)
